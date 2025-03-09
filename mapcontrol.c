@@ -6,29 +6,11 @@
 /*   By: iarslan <iarslan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 01:34:03 by iarslan           #+#    #+#             */
-/*   Updated: 2025/03/09 03:22:08 by iarslan          ###   ########.fr       */
+/*   Updated: 2025/03/09 15:32:25 by iarslan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-t_map	*info(t_map *map)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	if (map == NULL || map->map == NULL)
-		ft_error(map, 6);
-	while (map->map[y])
-		y++;
-	while (map->map[0][x])
-		x++;
-	map->line_number = y;
-	map->column_number = x;
-	return (map);
-}
 
 void	is_rectangle(t_map *map)
 {
@@ -62,7 +44,7 @@ void	wallcontrol(t_map *map, int x, int y)
 	{
 		x = 0;
 		if (!((map->map[y][0] == '1') && (map->map[y][(map->column_number)
-					- 1] == '1')))
+				- 1] == '1')))
 			ft_error(map, 2);
 		y++;
 	}
@@ -95,34 +77,6 @@ void	is_valid(t_map *map)
 		y++;
 	}
 }
-t_map	*map_elements(t_map *map)
-{
-	int	y;
-	int	x;
-
-	map->c = 0;
-	map->e = 0;
-	map->p = 0;
-	y = 0;
-	while (map->map[y])
-	{
-		x = 0;
-		while (map->map[y][x])
-		{
-			if (map->map[y][x] == 'C')
-				(map->c)++;
-			if (map->map[y][x] == 'E')
-				(map->e)++;
-			if (map->map[y][x] == 'P')
-				(map->p)++;
-			x++;
-		}
-		y++;
-	}
-	if (!(map->p == 1 && map->c >= 1 && map->e == 1))
-		ft_error(map, 4);
-	return (map);
-}
 
 void	ft_error(t_map *map, int error_code)
 {
@@ -150,26 +104,7 @@ void	ft_error(t_map *map, int error_code)
 		write(1, "Invalid Map Name\n", 17);
 	exit(1);
 }
-void	map_free(t_map *map)
-{
-	int	i;
 
-	if (map == NULL)
-		return ;
-	if (map->map == NULL)
-	{
-		free(map);
-		return ;
-	}
-	i = 0;
-	while (map->map[i])
-	{
-		free(map->map[i]);
-		i++;
-	}
-	free(map->map);
-	free(map);
-}
 t_map	*control(t_map *map)
 {
 	map = info(map);

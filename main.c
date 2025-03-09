@@ -6,7 +6,7 @@
 /*   By: iarslan <iarslan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 23:07:26 by iarslan           #+#    #+#             */
-/*   Updated: 2025/03/09 16:25:15 by iarslan          ###   ########.fr       */
+/*   Updated: 2025/03/09 16:36:22 by iarslan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	file_name_control(char *av)
 	if (len < 4)
 		return (0);
 	if (av[len - 4] == '.' && av[len - 3] == 'b' && av[len - 2] == 'e' && av[len
-			- 1] == 'r')
+		- 1] == 'r')
 		return (1);
 	return (0);
 }
@@ -97,6 +97,7 @@ int	main(int ac, char *av[])
 		map = mapcontrol2(map);
 		map = open_window(map);
 		mlx_key_hook(map->win, movement_and_exit, map);
+		mlx_hook(map->win, 17, 0, close_window, map);
 		mlx_loop(map->mlx_ptr);
 	}
 	else

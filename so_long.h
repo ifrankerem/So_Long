@@ -6,7 +6,7 @@
 /*   By: iarslan <iarslan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 15:32:57 by iarslan           #+#    #+#             */
-/*   Updated: 2025/03/09 16:23:01 by iarslan          ###   ########.fr       */
+/*   Updated: 2025/03/09 16:35:14 by iarslan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int			file_name_control(char *av);
 t_map		*open_window(t_map *map);
 t_map		*cast_image(t_map *map, int x, int y);
 void		movement(int keysym, t_map *map);
-void		close_window(t_map *map);
+int			close_window(t_map *map);
 int			movement_and_exit(int keysym, t_map *map);
 void		player_move(t_map *map, int my, int mx);
 void		fill_player(char **cpy_map, int x, int y);

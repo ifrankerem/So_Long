@@ -6,7 +6,7 @@
 /*   By: iarslan <iarslan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 15:26:48 by iarslan           #+#    #+#             */
-/*   Updated: 2025/03/09 15:56:32 by iarslan          ###   ########.fr       */
+/*   Updated: 2025/03/09 16:34:47 by iarslan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_map	*cast_image(t_map *map, int x, int y)
 	return (map);
 }
 
-void	close_window(t_map *map)
+int	close_window(t_map *map)
 {
 	mlx_destroy_image(map->mlx_ptr, map->player);
 	mlx_destroy_image(map->mlx_ptr, map->coin);
@@ -79,4 +79,5 @@ void	close_window(t_map *map)
 	free(map->mlx_ptr);
 	map_free(map);
 	exit(0);
+	return (0);
 }

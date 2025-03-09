@@ -6,7 +6,7 @@
 /*   By: iarslan <iarslan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 23:07:26 by iarslan           #+#    #+#             */
-/*   Updated: 2025/03/09 01:15:55 by iarslan          ###   ########.fr       */
+/*   Updated: 2025/03/09 05:06:37 by iarslan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_map	*read_map(t_map *map, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		return (0);
+		ft_error(map, 9);
 	whole = ft_strdup("");
 	if (!whole)
 		ft_error(map, 8);
@@ -45,10 +45,12 @@ t_map	*read_map(t_map *map, char *filename)
 		if (!line)
 			break ;
 		if (line[0] == '\n')
-		// bura leakli  geri dön bak bi ara boş satır varsa mapte leak yiyo
 		{
 			free(line);
 			free(whole);
+			while ((line = get_next_line(fd)))
+				free(line);
+			close(fd);
 			ft_error(map, 6);
 		}
 		temp = whole;
@@ -177,12 +179,12 @@ int	main(int ac, char *av[])
 {
 	t_map	*map;
 
-	map = malloc(sizeof(t_map));
-	if (!map)
-		return (0);
-	map->map = NULL;
 	if (ac == 2)
 	{
+		map = malloc(sizeof(t_map));
+		if (!map)
+			ft_error(map, 8);
+		map->map = NULL;
 		if (!(file_name_control(av[1])))
 			ft_error(map, 9);
 		map = read_map(map, av[1]);
@@ -191,5 +193,10 @@ int	main(int ac, char *av[])
 		map = open_window(map);
 		mlx_key_hook(map->win, movement_and_exit, map);
 		mlx_loop(map->mlx_ptr);
+	}
+	else
+	{
+		write(1, "Error\n", 6);
+		write(1, "Invalid Map Name\n", 17);
 	}
 }

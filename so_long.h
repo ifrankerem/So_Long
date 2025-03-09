@@ -9,6 +9,8 @@ typedef struct s_map
 	int		move_count;
 	int		player_x;
 	int		player_y;
+	int		exit_x;
+	int		exit_y;
 	int		e;
 	int		p;
 	int		c;
@@ -48,12 +50,14 @@ void		movement(int keysym, t_map *map);
 void		close_window(t_map *map);
 int			movement_and_exit(int keysym, t_map *map);
 void		player_move(t_map *map, int my, int mx);
-void		fill(char **cpy_map, int x, int y);
-void		flood_fill(char **cpy_map, t_map *map);
+void		fill_player(char **cpy_map, int x, int y);
+void		flood_fill_player(char **cpy_map, t_map *map);
 t_map		*player_info(t_map *map);
+t_map		*exit_info(t_map *map);
 char		**make_copy(t_map *map);
 void		copy_mapcontrol(t_map *map, char **cpy_map);
 void		free_cpymap(char **cpy_map);
 t_map		*mapcontrol2(t_map *map);
+void		fill_exit(char **cpy_map, int x, int y);
 
 #endif

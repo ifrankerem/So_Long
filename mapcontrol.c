@@ -6,7 +6,7 @@
 /*   By: iarslan <iarslan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 01:34:03 by iarslan           #+#    #+#             */
-/*   Updated: 2025/03/09 01:34:04 by iarslan          ###   ########.fr       */
+/*   Updated: 2025/03/09 03:22:08 by iarslan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_map	*info(t_map *map)
 
 	x = 0;
 	y = 0;
+	if (map == NULL || map->map == NULL)
+		ft_error(map, 6);
 	while (map->map[y])
 		y++;
 	while (map->map[0][x])

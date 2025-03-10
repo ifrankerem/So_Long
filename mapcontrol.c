@@ -6,7 +6,7 @@
 /*   By: iarslan <iarslan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 01:34:03 by iarslan           #+#    #+#             */
-/*   Updated: 2025/03/09 15:32:25 by iarslan          ###   ########.fr       */
+/*   Updated: 2025/03/11 00:29:50 by iarslan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	wallcontrol(t_map *map, int x, int y)
 {
 	if (map->line_number < 3)
 		ft_error(map, 1);
-	while ((map->map[0][x] != '\n') && (map->map[0][x]))
+	while ((map->map[0][x]))
 	{
 		if (!(map->map[0][x] == '1'))
 			ft_error(map, 2);

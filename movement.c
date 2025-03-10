@@ -6,7 +6,7 @@
 /*   By: iarslan <iarslan@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 15:26:13 by iarslan           #+#    #+#             */
-/*   Updated: 2025/03/09 16:33:04 by iarslan          ###   ########.fr       */
+/*   Updated: 2025/03/11 01:21:15 by iarslan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int	movement_and_exit(int keysym, t_map *map)
 {
-	if (keysym == XK_Escape)
-	{
-		write(1, "Quitting game by pressing ESC\n", 30);
-		close_window(map);
-	}
 	if (keysym == XK_Escape)
 	{
 		write(1, "Quitting game by pressing ESC\n", 30);

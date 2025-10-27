@@ -62,8 +62,9 @@ Each level is stored in a **`.ber`** file and must follow these rules:
 ## 🔴 YouTube Video
 Here are walkthrough and demo videos explaining the project structure, algorithm, and runtime behavior.
 
-▶️ **Project Overview:**
+▶️ Project Overview:
 [https://www.youtube.com/watch?v=rY4tZnFEBo8](https://www.youtube.com/watch?v=rY4tZnFEBo8)
 ---
+
 **Enjoy the game 🎮🔥**
 
